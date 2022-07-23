@@ -36,8 +36,17 @@ class LinkedList
   end
 
   def size
-
-
+    if @head != nil
+      size = 0
+      current_node = @head
+      until current_node.nil?
+        current_node = current_node.next_node
+        size += 1
+      end
+    else
+      size = 0
+    end
+    size
   end
 
   def at(index)
@@ -74,4 +83,5 @@ list = LinkedList.new
 list.append(13)
 list.prepend(20)
 list.append(15)
-p list
+list.prepend(25)
+p list.size
