@@ -11,7 +11,10 @@ end
 
 class LinkedList
   def append(value)
-    
+    LinkedList.tail = old_tail
+    tail = Node.new
+    tail.value = value
+    old_tail.next_node = tail
   end
 
   def prepend(value)
