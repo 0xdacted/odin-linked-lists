@@ -1,3 +1,4 @@
+require 'pry-byebug'
 class Node
   attr_accessor :value, :next_node
   def initialize(value = nil, next_node = nil)
@@ -7,28 +8,38 @@ class Node
 end
 
 class LinkedList
+  
+  def initialize
+    @head = nil
+    @tail = nil
+  end
+  
+  def switch_tail(tail)
+    self.next_node = @tail
+  end
+  
   def append(value)
-    @old_tail = LinkedList.tail
-    @tail = Node.new(@value)
-    @old_tail.next_node = @tail
+    if @tail != nil
+      @old_tail = @tail
+      @tail = Node.new(value)
+      @old_tail.switch_tail(@tail)
+    else
+      @tail = Node.new(value)
+      @head = @tail
+    end
   end
 
   def prepend(value)
-    @old_head = LinkedList.head
-    @head = Node.new(value, @old_head)
-
+    if @head != nil
+      @old_head = @head
+      @head = Node.new(value, @old_head)
+    else
+      @head = Node.new(value)
+      @tail = @head
+    end
   end
 
   def size
- 
-  end
-
-  def head
-    
-
-  end
-
-  def tail
 
   end
 
@@ -61,3 +72,6 @@ class LinkedList
   end
 
 end
+
+list = LinkedList.new
+p list.append(13)
