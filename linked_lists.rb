@@ -1,17 +1,24 @@
 class Node
   def value
+    nil
+  end
 
+  def next_node
+    nil
   end
 
 end
 
 class LinkedList
   def append(value)
-
+    
   end
 
   def prepend(value)
-
+    LinkedList.head = old_head
+    head = Node.new
+    head.value = value
+    head.next_node = old_head
   end
 
   def size
