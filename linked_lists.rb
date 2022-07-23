@@ -50,6 +50,16 @@ class LinkedList
   end
 
   def at(index)
+    if @head != nil
+      current_node = @head
+      index.times do
+        current_node = current_node.next_node 
+      end
+      current_node
+    else
+      p "The list is empty"
+    end
+  end
 
   end
 
@@ -77,11 +87,12 @@ class LinkedList
 
   end
 
-end
+
 
 list = LinkedList.new
 list.append(13)
 list.prepend(20)
 list.append(15)
 list.prepend(25)
-p list.size
+list.size
+p list.at(3)
