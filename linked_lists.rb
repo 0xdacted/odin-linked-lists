@@ -8,10 +8,14 @@ end
 
 class LinkedList
   def append(value)
-  
+    @old_tail = LinkedList.tail
+    @tail = Node.new(@value)
+    @old_tail.next_node = @tail
   end
 
   def prepend(value)
+    @old_head = LinkedList.head
+    @head = Node.new(value, @old_head)
 
   end
 
