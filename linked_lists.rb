@@ -25,7 +25,13 @@ class LinkedList
   end
 
   def size
-
+    size = 1
+    node_tmp = head
+    until(node_tmp == nil)
+      node_tmp = node_tmp.next_node
+      size += 1
+    end
+    size 
   end
 
   def head
