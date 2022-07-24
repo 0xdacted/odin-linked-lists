@@ -84,6 +84,18 @@ class LinkedList
   end
 
   def find(value)
+    index = 0
+    current_node = @head
+    self.size.times do
+      if current_node.value == value
+        return index
+      elsif current_node == @tail
+        return nil
+      else
+      current_node = current_node.next_node
+      index += 1
+      end
+    end
 
   end
 
@@ -108,5 +120,6 @@ list.append(13)
 list.prepend(20)
 list.append(15)
 list.prepend(25)
-p list.contains?(25)
+p list.find(13)
+
 
