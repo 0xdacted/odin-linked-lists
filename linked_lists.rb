@@ -114,8 +114,8 @@ class LinkedList
       insertion = Node.new(value)
       left_value = self.at(index - 1)
       right_value = self.at(index)
-      prior_value.next_node = insertion
-      insertion.next_node = post_value
+      left_value.next_node = insertion
+      insertion.next_node = right_value
     else
       self.append(value)
     end
