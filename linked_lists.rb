@@ -61,10 +61,13 @@ class LinkedList
     end
   end
 
-  end
-
   def pop
-    
+    if @tail != nil
+     former_tail = at(self.size - 1)
+     @tail = at(self.size - 2)
+     @tail.next_node = nil
+    end
+    former_tail
   end
 
   def contains?(value)
@@ -87,6 +90,8 @@ class LinkedList
 
   end
 
+end
+
 
 
 list = LinkedList.new
@@ -95,4 +100,4 @@ list.prepend(20)
 list.append(15)
 list.prepend(25)
 list.size
-p list.at(3)
+p list.pop
