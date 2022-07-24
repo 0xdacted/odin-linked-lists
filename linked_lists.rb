@@ -96,11 +96,14 @@ class LinkedList
       index += 1
       end
     end
-
   end
 
   def to_s
-
+    current_node = @head
+    self.size.times do
+     p "#{current_node.value}"
+      current_node = current_node.next_node 
+    end
   end
 
   def insert_at
@@ -120,6 +123,6 @@ list.append(13)
 list.prepend(20)
 list.append(15)
 list.prepend(25)
-p list.find(13)
+list.to_s
 
 
