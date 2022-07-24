@@ -112,21 +112,33 @@ class LinkedList
     
     elsif self.at(index) != nil  
       insertion = Node.new(value)
-      prior_value = self.at(index - 1)
-      post_value = self.at(index)
+      left_value = self.at(index - 1)
+      right_value = self.at(index)
       prior_value.next_node = insertion
       insertion.next_node = post_value
     else
       self.append(value)
     end
-
   end
 
-  def remove_at
+  def remove_at(index)
+    removed_value = self.at(index)
+    left_value = self.at(index - 1)
+    right_value = self.at(index + 1)
+      if self.at(index) == @head
+        removed_value.next_node = nil
+        @head = right_value
 
+      elsif self.at(index) == @tail
+        left_value.next_node = nil
+        @tail = left_value
+
+      else
+      left_value.next_node = right_value
+    end
   end
-
 end
+
 
 
 
@@ -135,8 +147,6 @@ list.append(13)
 list.prepend(20)
 list.append(15)
 list.prepend(25)
-p list
-list.insert_at(4, 0)
-p list
+
 
 
